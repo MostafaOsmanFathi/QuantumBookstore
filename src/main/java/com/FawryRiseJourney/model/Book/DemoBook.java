@@ -19,4 +19,9 @@ public class DemoBook extends Book {
         throw new UnsupportedOperationException("Can't buy Demo Book");
     }
 
+    @Override
+    public boolean ApplyBuy(int quantity) {
+        throw new UnsupportedOperationException("Can't apply Buy");
+    }
+
 }

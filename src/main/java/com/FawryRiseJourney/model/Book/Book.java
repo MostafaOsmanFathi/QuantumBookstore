@@ -25,6 +25,8 @@ public abstract class Book {
 
     public abstract double buy(int quantity, Customer customer);
 
+    public abstract boolean ApplyBuy(int quantity);
+
     public boolean isOutdated(LocalDate date) {
         return date.isAfter(OutDate);
     }

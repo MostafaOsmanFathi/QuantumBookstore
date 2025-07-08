@@ -1,5 +1,7 @@
 package com.FawryRiseJourney.model.Shipping;
 
+import com.FawryRiseJourney.model.Customer.Customer;
+
 public interface ShippingInterface {
-    boolean makeShipping(String Name, String Email, String Address, String Phone, String Content);
+    boolean makeShipping(Customer customer, String Content);
 }
