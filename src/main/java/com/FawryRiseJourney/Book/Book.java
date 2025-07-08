@@ -1,18 +1,22 @@
-package com.FawryRiseJourney;
+package com.FawryRiseJourney.Book;
 
 import java.time.LocalDate;
 
 public abstract class Book {
-    public String ISBN;
-    public String BookName;
-    public String Author;
-    public LocalDate OutDate;
+    private String ISBN;
+    private String BookName;
+    private String Author;
+    private LocalDate OutDate;
 
-    public Book(String ISBN, String bookName, String author, LocalDate outDate) {
+
+    private double price;
+
+    public Book(String ISBN, String bookName, String author, double price, LocalDate outDate) {
         this.ISBN = ISBN;
         BookName = bookName;
         Author = author;
         OutDate = outDate;
+        this.price = price;
     }
 
     public abstract boolean isAvailable(int quantity);
@@ -21,6 +25,16 @@ public abstract class Book {
         return date.isAfter(OutDate);
     }
 
+
+    public abstract double buy(int quantity, String email);
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public String getISBN() {
         return ISBN;
