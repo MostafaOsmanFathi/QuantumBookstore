@@ -1,11 +1,24 @@
-package com.FawryRiseJourney.model.Inventory;
+package com.FawryRiseJourney.Service;
 
 import com.FawryRiseJourney.model.Book.Book;
 
 import java.util.HashMap;
 
-public class Inventory {
-    //      ISBN    bookObject
+public class InventoryService {
+    private static InventoryService inventoryService;
+
+    private InventoryService() {
+
+    }
+
+    public static InventoryService getInstance() {
+        if (inventoryService == null) {
+            inventoryService = new InventoryService();
+        }
+        return inventoryService;
+    }
+
+    //                 ISBN    bookObject
     private final HashMap<String, Book> booksInventory = new HashMap<>();
 
     public boolean addBook(Book book) {
