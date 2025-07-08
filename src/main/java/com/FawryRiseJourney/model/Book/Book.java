@@ -1,4 +1,6 @@
-package com.FawryRiseJourney.Book;
+package com.FawryRiseJourney.model.Book;
+
+import com.FawryRiseJourney.model.Customer.Customer;
 
 import java.time.LocalDate;
 
@@ -21,12 +23,16 @@ public abstract class Book {
 
     public abstract boolean isAvailable(int quantity);
 
+    public abstract double buy(int quantity, Customer customer);
+
     public boolean isOutdated(LocalDate date) {
         return date.isAfter(OutDate);
     }
 
-
-    public abstract double buy(int quantity, String email);
+    @Override
+    public String toString() {
+        return "Book{ISBN='" + ISBN + "', BookName='" + BookName + "', Author='" + Author + "', OutDate=" + OutDate + ", Price=" + price + "}";
+    }
 
     public double getPrice() {
         return price;

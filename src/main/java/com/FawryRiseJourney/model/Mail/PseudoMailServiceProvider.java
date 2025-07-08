@@ -1,4 +1,4 @@
-package com.FawryRiseJourney.Mail;
+package com.FawryRiseJourney.model.Mail;
 
 public class PseudoMailServiceProvider implements MailInterface {
 

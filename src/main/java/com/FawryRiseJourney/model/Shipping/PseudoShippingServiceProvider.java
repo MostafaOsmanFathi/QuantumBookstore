@@ -1,4 +1,4 @@
-package com.FawryRiseJourney.Shipping;
+package com.FawryRiseJourney.model.Shipping;
 
 public class PseudoShippingServiceProvider implements ShippingInterface {
     @Override

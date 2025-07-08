@@ -1,4 +1,6 @@
-package com.FawryRiseJourney.Book;
+package com.FawryRiseJourney.model.Book;
+
+import com.FawryRiseJourney.model.Customer.Customer;
 
 import java.time.LocalDate;
 
@@ -16,7 +18,7 @@ public class PaperBook extends Book {
     }
 
     @Override
-    public double buy(int quantity, String email) {
+    public double buy(int quantity, Customer customer) {
         if (isAvailable(quantity)) {
             return getPrice() * quantity;
         }
