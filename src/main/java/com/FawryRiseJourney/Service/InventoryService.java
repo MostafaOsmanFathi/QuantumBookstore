@@ -44,5 +44,9 @@ public class InventoryService {
         return booksInventory.get(ISBN);
     }
 
-
+    public void displayAllBooks() {
+        for (Book book : booksInventory.values()) {
+            System.out.println(book);
+        }
+    }
 }

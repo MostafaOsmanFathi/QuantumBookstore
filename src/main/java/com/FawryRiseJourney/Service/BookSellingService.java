@@ -8,7 +8,7 @@ import com.FawryRiseJourney.model.Customer.Customer;
 public class BookSellingService {
     static private BookSellingService bookSellingService;
 
-    BookSellingService getBookSellingService() {
+    public static BookSellingService getBookSellingService() {
         if (bookSellingService == null) {
             bookSellingService = new BookSellingService();
         }
@@ -18,7 +18,7 @@ public class BookSellingService {
     private BookSellingService() {
     }
 
-    boolean buyBook(Book book, int quantity, Customer customer) {
+    public boolean buyBook(Book book, int quantity, Customer customer) {
         double price = book.buy(quantity, customer);
         if (customer.getPayment().charge(customer, price)) {
             if (book.ApplyBuy(quantity)) {
