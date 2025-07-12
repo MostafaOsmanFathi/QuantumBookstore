@@ -37,7 +37,7 @@ public abstract class Book {
 
     @Override
     public String toString() {
-        return "Book{ISBN='" + ISBN + "', BookName='" + BookName + "', Author='" + Author + "', OutDate=" + OutDate + ", Price=" + price + "}";
+        return "{ISBN='" + ISBN + "', BookName='" + BookName + "', Author='" + Author + "', OutDate=" + OutDate + ", Price=" + price + "}";
     }
 
     public double getPrice() {

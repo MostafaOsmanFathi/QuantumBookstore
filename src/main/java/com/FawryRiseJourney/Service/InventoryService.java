@@ -31,6 +31,7 @@ public class InventoryService {
 
     public boolean addBook(Book book) {
         if (booksInventory.containsKey(book.getISBN())) {
+            System.out.println("Book with ISBN " + book.getISBN() + " all ready added");
             return false;
         }
         booksInventory.put(book.getISBN(), book);
@@ -54,9 +55,10 @@ public class InventoryService {
 
     public void displayAllBooks() {
         for (Book book : booksInventory.values()) {
-            System.out.println(book);
+            System.out.println(book.getBookType() + " " + book);
         }
     }
+
     public void clearAllBooks() {
         booksInventory.clear();
     }
