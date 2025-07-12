@@ -21,6 +21,41 @@ public class PseudoPaymentService implements PaymentInterface {
         return pseudoPaymentService;
     }
 
+    public boolean createCustomerAccount(Customer customer) {
+        if (customerBalanceRepository.containsKey(customer.getEmail())) {
+            return false;
+        }
+        customerBalanceRepository.put(customer.getEmail(), 0.0);
+        return true;
+    }
+
+    public double getCustomerBalance(String email) {
+        if (!customerBalanceRepository.containsKey(email)) {
+            throw new IllegalArgumentException("Customer not found");
+        }
+        return customerBalanceRepository.get(email);
+    }
+
+    public boolean depositCustomerBalance(String email, double amount) {
+        if (!customerBalanceRepository.containsKey(email)) {
+            return false;
+        }
+        customerBalanceRepository.put(email, customerBalanceRepository.get(email) + amount);
+        return true;
+    }
+
+    public boolean withdrawCustomerBalance(String email, double amount) {
+        if (!customerBalanceRepository.containsKey(email)) {
+            return false;
+        }
+        double oldBalance = customerBalanceRepository.get(email);
+        if (oldBalance < amount) {
+            return false;
+        }
+        customerBalanceRepository.put(email, customerBalanceRepository.get(email) - amount);
+        return true;
+    }
+
     @Override
     public boolean charge(Customer customer, double amount) {
         if (customer == null) {
@@ -48,5 +83,9 @@ public class PseudoPaymentService implements PaymentInterface {
         double balance = customerBalanceRepository.get(customer.getEmail());
         customerBalanceRepository.put(customer.getEmail(), balance + amount);
         return false;
+    }
+
+    public void clear() {
+        customerBalanceRepository.clear();
     }
 }

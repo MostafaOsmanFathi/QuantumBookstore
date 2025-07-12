@@ -23,7 +23,9 @@ public class CustomerService {
     }
 
     public boolean addCustomerDefaultPayment(Customer customer) {
-        return addCustomer(customer, PseudoPaymentService.getPseudoPaymentService());
+        PseudoPaymentService pseudoPaymentService = PseudoPaymentService.getPseudoPaymentService();
+        pseudoPaymentService.createCustomerAccount(customer);
+        return addCustomer(customer, pseudoPaymentService);
     }
 
     public void getCustomerOrders(Customer customer) {
@@ -31,7 +33,7 @@ public class CustomerService {
     }
 
     public boolean addCustomer(Customer customer, PseudoPaymentService pseudoPaymentService) {
-        if (customerRepository == null) {
+        if (customer == null || customerRepository.containsKey(customer.getEmail())) {
             return false;
         }
         customerRepository.put(customer.getEmail(), customer);
