@@ -1,6 +1,7 @@
 package com.FawryRiseJourney.model.Book;
 
 import com.FawryRiseJourney.model.Customer.Customer;
+import com.FawryRiseJourney.model.Customer.order.OrderStatus;
 
 import java.time.LocalDate;
 
@@ -30,6 +31,8 @@ public abstract class Book {
     public abstract boolean decreaseQuantity(int quantity);
 
     public abstract String getBookType();
+
+    public abstract OrderStatus getOrderStatusType();
 
     public boolean isOutdated(LocalDate date) {
         return date.isAfter(OutDate);
@@ -79,4 +82,5 @@ public abstract class Book {
     public void setOutDate(LocalDate outDate) {
         OutDate = outDate;
     }
+
 }

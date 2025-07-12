@@ -1,6 +1,7 @@
 package com.FawryRiseJourney.model.Book;
 
 import com.FawryRiseJourney.model.Customer.Customer;
+import com.FawryRiseJourney.model.Customer.order.OrderStatus;
 import com.FawryRiseJourney.model.Shipping.ShippingInterface;
 
 import java.time.LocalDate;
@@ -52,6 +53,11 @@ public class PaperBook extends Book {
     @Override
     public String getBookType() {
         return "Paper Book";
+    }
+
+    @Override
+    public OrderStatus getOrderStatusType() {
+        return OrderStatus.SHIPPED;
     }
 
     public int getStockQuantity() {

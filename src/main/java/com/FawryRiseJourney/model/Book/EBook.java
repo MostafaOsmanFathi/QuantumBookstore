@@ -1,6 +1,7 @@
 package com.FawryRiseJourney.model.Book;
 
 import com.FawryRiseJourney.model.Customer.Customer;
+import com.FawryRiseJourney.model.Customer.order.OrderStatus;
 import com.FawryRiseJourney.model.Mail.MailInterface;
 
 import java.time.LocalDate;
@@ -17,6 +18,10 @@ public class EBook extends Book {
         this.mail = mail;
     }
 
+    @Override
+    public OrderStatus getOrderStatusType() {
+        return OrderStatus.SHIPPED;
+    }
     @Override
     public boolean isAvailable(int quantity) {
         return true;

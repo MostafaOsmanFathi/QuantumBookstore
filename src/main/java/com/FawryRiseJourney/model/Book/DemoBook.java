@@ -1,12 +1,18 @@
 package com.FawryRiseJourney.model.Book;
 
 import com.FawryRiseJourney.model.Customer.Customer;
+import com.FawryRiseJourney.model.Customer.order.OrderStatus;
 
 import java.time.LocalDate;
 
 public class DemoBook extends Book {
     public DemoBook(String ISBN, String bookName, String author, double price, LocalDate outDate) {
         super(ISBN, bookName, author, price, outDate);
+    }
+
+    @Override
+    public OrderStatus getOrderStatusType() {
+        return OrderStatus.PENDING;
     }
 
     @Override
