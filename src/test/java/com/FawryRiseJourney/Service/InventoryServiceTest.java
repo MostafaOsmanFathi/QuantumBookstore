@@ -96,4 +96,13 @@ class InventoryServiceTest {
         inventoryService.addBook(demoBook);
 
     }
+
+    @Test
+    public void RemoveOutdatedBooks() {
+        //as curunt date is 2025
+        inventoryService.removeOutdatedBooks();
+        assertNull(inventoryService.getBook("AR-101"));
+        assertNotNull(inventoryService.getBook("DU-404"));
+        assertNotNull(inventoryService.getBook("En-101"));
+    }
 }

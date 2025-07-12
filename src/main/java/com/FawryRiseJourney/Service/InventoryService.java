@@ -2,6 +2,8 @@ package com.FawryRiseJourney.Service;
 
 import com.FawryRiseJourney.model.Book.Book;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class InventoryService {
@@ -41,9 +43,10 @@ public class InventoryService {
 
     public boolean removeBook(Book book) {
         if (!booksInventory.containsKey(book.getISBN())) {
-            return true;
+            return false;
         }
-        return booksInventory.remove(book.getISBN(), book);
+        booksInventory.remove(book.getISBN());
+        return true;
     }
 
     public Book getBook(String ISBN) {
@@ -61,5 +64,29 @@ public class InventoryService {
 
     public void clearAllBooks() {
         booksInventory.clear();
+    }
+
+    public void removeOutdatedBooks() {
+        ArrayList<Book> outdatedBooks = new ArrayList<>();
+
+        for (Book book : booksInventory.values()) {
+            if (book.isOutdated(LocalDate.now())) {
+                outdatedBooks.add(book);
+            }
+        }
+        if (outdatedBooks.isEmpty()) {
+            System.out.println("No books outdated");
+            return;
+        }
+
+        System.out.println("Outdated books " + outdatedBooks.size() + " books deleted");
+        int index = 1;
+        for (Book book : outdatedBooks) {
+
+            System.out.println(index++ + ". " + book.toString());
+
+            removeBook(book);
+        }
+        outdatedBooks.clear();
     }
 }
