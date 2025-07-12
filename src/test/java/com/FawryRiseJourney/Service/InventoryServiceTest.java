@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryServiceTest {
     InventoryService inventoryService;
@@ -37,11 +36,17 @@ class InventoryServiceTest {
     @Test
     void reduceQuantityBy() {
 
+        inventoryService.reduceQuantityBy("En-101", 3);
+        assertEquals(2, ((PaperBook) inventoryService.getBook("En-101")).getStockQuantity());
+        inventoryService.reduceQuantityBy("En-101", 2);
+        assertEquals(0, ((PaperBook) inventoryService.getBook("En-101")).getStockQuantity());
     }
 
 
     @Test
     void removeBook() {
+        inventoryService.removeBook(paperBook);
+        assertNull(inventoryService.getBook("En-101"));
     }
 
     @Test
