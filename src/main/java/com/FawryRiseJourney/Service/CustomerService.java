@@ -38,4 +38,8 @@ public class CustomerService {
     public Customer getCustomer(String email) {
         return customerRepository.get(email);
     }
+
+    public void clearData() {
+        customerRepository.clear();
+    }
 }

@@ -11,7 +11,7 @@ public class InventoryService {
 
     }
 
-    public static InventoryService getInstance() {
+    public static InventoryService getInventoryService() {
         if (inventoryService == null) {
             inventoryService = new InventoryService();
         }
@@ -30,7 +30,7 @@ public class InventoryService {
     }
 
     public boolean addBook(Book book) {
-        if (!booksInventory.containsKey(book.getISBN())) {
+        if (booksInventory.containsKey(book.getISBN())) {
             return false;
         }
         booksInventory.put(book.getISBN(), book);
@@ -56,5 +56,8 @@ public class InventoryService {
         for (Book book : booksInventory.values()) {
             System.out.println(book);
         }
+    }
+    public void clearAllBooks() {
+        booksInventory.clear();
     }
 }
