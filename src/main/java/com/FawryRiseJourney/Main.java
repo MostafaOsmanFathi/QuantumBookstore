@@ -177,7 +177,24 @@ public class Main {
     }
 
     private static void buyBook(Customer customer) {
+        System.out.println("Buy a Book");
+        showBooksInInventory();
+        System.out.print("\nEnter ISBN Code of the book: ");
+        String isbn = scanner.nextLine();
+        Book book = inventoryService.getBook(isbn);
 
+        if (book == null) {
+            System.out.println("Book ISBN not found. Please try again.");
+            return;
+        }
+        int quanntity = scanner.nextInt();
+
+        if (bookSellingService.buyBook(book, quanntity, customer)) {
+            System.out.println("Book Sold successful");
+            System.out.println("you can view it in customer orders");
+        } else {
+            System.out.println("Book Not Sold");
+        }
     }
 
     private static void showCustomerOrders(Customer customer) {
@@ -215,7 +232,7 @@ public class Main {
 
         System.out.print("Choose: ");
         int type = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+        scanner.nextLine();
 
         System.out.print("Enter ISBN: ");
         String isbn = scanner.nextLine();
