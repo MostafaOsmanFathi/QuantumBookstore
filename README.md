@@ -61,7 +61,7 @@ C:.
 ## JAR Executable
 
 You can download the compiled `.jar` file here:
-👉 [Download JAR](#) *(Put link here after uploading to GitHub Releases or other hosting platform)*
+👉 [Download JAR](https://github.com/MostafaOsmanFathi/QuantumBookstore/releases/latest) *(Put link here after uploading to GitHub Releases or other hosting platform)*
 
 To run the JAR:
 
