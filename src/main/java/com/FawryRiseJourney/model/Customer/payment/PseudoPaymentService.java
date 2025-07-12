@@ -7,10 +7,11 @@ import java.util.HashMap;
 //Singleton
 public class PseudoPaymentService implements PaymentInterface {
     //                     Email, balance
-    private static HashMap<String, Double> customerBalance;
+    private static HashMap<String, Double> customerBalanceRepository;
     static PseudoPaymentService pseudoPaymentService;
 
     private PseudoPaymentService() {
+        customerBalanceRepository = new HashMap<String, Double>();
     }
 
     static public PseudoPaymentService getPseudoPaymentService() {
@@ -25,14 +26,14 @@ public class PseudoPaymentService implements PaymentInterface {
         if (customer == null) {
             return false;
         }
-        if (!customerBalance.containsKey(customer.getEmail())) {
-            customerBalance.put(customer.getEmail(), 0.0);
+        if (!customerBalanceRepository.containsKey(customer.getEmail())) {
+            customerBalanceRepository.put(customer.getEmail(), 0.0);
         }
-        double balance = customerBalance.get(customer.getEmail());
+        double balance = customerBalanceRepository.get(customer.getEmail());
         if (balance < amount) {
             return false;
         }
-        customerBalance.put(customer.getEmail(), balance - amount);
+        customerBalanceRepository.put(customer.getEmail(), balance - amount);
         return true;
     }
 
@@ -41,11 +42,11 @@ public class PseudoPaymentService implements PaymentInterface {
         if (customer == null) {
             return false;
         }
-        if (!customerBalance.containsKey(customer.getEmail())) {
-            customerBalance.put(customer.getEmail(), 0.0);
+        if (!customerBalanceRepository.containsKey(customer.getEmail())) {
+            customerBalanceRepository.put(customer.getEmail(), 0.0);
         }
-        double balance = customerBalance.get(customer.getEmail());
-        customerBalance.put(customer.getEmail(), balance + amount);
+        double balance = customerBalanceRepository.get(customer.getEmail());
+        customerBalanceRepository.put(customer.getEmail(), balance + amount);
         return false;
     }
 }
