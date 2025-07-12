@@ -73,7 +73,7 @@ class InventoryServiceTest {
                 LocalDate.of(2026, 1, 1),
                 60.0,
                 5,
-                new PseudoShippingServiceProvider()
+                PseudoShippingServiceProvider.getPseudoShippingServiceProvider()
         );
         eBook = new EBook(
                 "AR-101",
