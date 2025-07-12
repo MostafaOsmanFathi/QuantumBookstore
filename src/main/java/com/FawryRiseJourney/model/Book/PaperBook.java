@@ -26,21 +26,19 @@ public class PaperBook extends Book {
     }
 
     @Override
-    public double buy(int quantity, Customer customer) {
+    public boolean buy(int quantity, Customer customer) {
         if (isAvailable(quantity)) {
-            return getPrice() * quantity;
+            stockQuantity -= quantity;
+            return true;
         }
         throw new IllegalArgumentException("Not enough in the stock");
     }
 
     @Override
-    public boolean ApplyBuy(int quantity) {
-        if (isAvailable(quantity)) {
-            stockQuantity -= quantity;
-            return true;
-        }
-        return false;
+    public double getTotalPrice(int quantity) {
+        return getPrice() * quantity;
     }
+
 
     @Override
     public boolean decreaseQuantity(int quantity) {

@@ -23,13 +23,13 @@ public class EBook extends Book {
     }
 
     @Override
-    public double buy(int quantity, Customer customer) {
-        return getPrice() * quantity;
+    public boolean buy(int quantity, Customer customer) {
+        return true;
     }
 
     @Override
-    public boolean ApplyBuy(int quantity) {
-        return true;
+    public double getTotalPrice(int quantity) {
+        return getPrice() * quantity;
     }
 
     @Override

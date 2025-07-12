@@ -15,13 +15,13 @@ public class DemoBook extends Book {
     }
 
     @Override
-    public double buy(int quantity, Customer customer) {
+    public boolean buy(int quantity, Customer customer) {
         throw new UnsupportedOperationException("Can't buy Demo Book");
     }
 
     @Override
-    public boolean ApplyBuy(int quantity) {
-        throw new UnsupportedOperationException("Can't apply Buy");
+    public double getTotalPrice(int quantity) {
+        return 0;
     }
 
     @Override

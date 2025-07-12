@@ -21,9 +21,10 @@ public class BookSellingService {
     }
 
     public boolean buyBook(Book book, int quantity, Customer customer) {
-        double price = book.buy(quantity, customer);
+        double price = book.getTotalPrice(quantity);
+
         if (customer.getPayment().charge(customer, price)) {
-            if (book.ApplyBuy(quantity)) {
+            if (book.buy(quantity,customer)) {
                 System.out.println("customer wiht name :" + customer.getName() + "Bought");
                 if (book instanceof EBook eBook) {
                     System.out.println("Ebook with This Data:");

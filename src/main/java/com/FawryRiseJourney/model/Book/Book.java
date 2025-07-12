@@ -23,9 +23,9 @@ public abstract class Book {
 
     public abstract boolean isAvailable(int quantity);
 
-    public abstract double buy(int quantity, Customer customer);
+    public abstract boolean buy(int quantity, Customer customer);
 
-    public abstract boolean ApplyBuy(int quantity);
+    public abstract double getTotalPrice(int quantity);
 
     public abstract boolean decreaseQuantity(int quantity);
 
