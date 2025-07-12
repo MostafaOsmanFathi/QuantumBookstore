@@ -24,4 +24,14 @@ public class DemoBook extends Book {
         throw new UnsupportedOperationException("Can't apply Buy");
     }
 
+    @Override
+    public boolean decreaseQuantity(int quantity) {
+        throw new UnsupportedOperationException("Demo Book does not decrease quantity");
+    }
+
+    @Override
+    public String getBookType() {
+        return "Demo Book";
+    }
+
 }

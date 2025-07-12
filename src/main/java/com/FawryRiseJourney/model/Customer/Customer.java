@@ -1,10 +1,19 @@
 package com.FawryRiseJourney.model.Customer;
 
+import com.FawryRiseJourney.model.Customer.order.Order;
+import com.FawryRiseJourney.model.Customer.payment.PaymentInterface;
+import com.FawryRiseJourney.model.Customer.payment.PseudoPaymentService;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
     String name;
     String address;
     String phone;
     String email;
+
+    List<Order> orders;
 
     PaymentInterface payment;
 
@@ -14,6 +23,7 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.payment = payment;
+        this.orders = new ArrayList<>();
     }
 
     public Customer(String name, String address, String phone, String email) {
@@ -22,6 +32,11 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.payment = PseudoPaymentService.getPseudoPaymentService();
+        this.orders = new ArrayList<>();
+    }
+
+    public boolean addOrder(Order order) {
+        return orders.add(order);
     }
 
     public String getName() {
@@ -63,4 +78,5 @@ public class Customer {
     public void setPayment(PaymentInterface payment) {
         this.payment = payment;
     }
+
 }

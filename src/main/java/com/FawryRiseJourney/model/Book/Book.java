@@ -27,6 +27,10 @@ public abstract class Book {
 
     public abstract boolean ApplyBuy(int quantity);
 
+    public abstract boolean decreaseQuantity(int quantity);
+
+    public abstract String getBookType();
+
     public boolean isOutdated(LocalDate date) {
         return date.isAfter(OutDate);
     }

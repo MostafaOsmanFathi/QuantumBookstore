@@ -18,8 +18,16 @@ public class InventoryService {
         return inventoryService;
     }
 
-    //                 ISBN    bookObject
+    //                     ISBN    bookObject
     private final HashMap<String, Book> booksInventory = new HashMap<>();
+
+    public boolean reduceQuantityBy(String ISBN, int quantity) {
+        if (!booksInventory.containsKey(ISBN)) {
+            throw new IllegalCallerException("Book does not exist");
+        }
+        Book book = booksInventory.get(ISBN);
+        return book.decreaseQuantity(quantity);
+    }
 
     public boolean addBook(Book book) {
         if (!booksInventory.containsKey(book.getISBN())) {

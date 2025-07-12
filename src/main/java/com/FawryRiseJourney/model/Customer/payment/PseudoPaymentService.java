@@ -1,4 +1,6 @@
-package com.FawryRiseJourney.model.Customer;
+package com.FawryRiseJourney.model.Customer.payment;
+
+import com.FawryRiseJourney.model.Customer.Customer;
 
 import java.util.HashMap;
 

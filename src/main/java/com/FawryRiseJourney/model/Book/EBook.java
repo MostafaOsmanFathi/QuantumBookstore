@@ -32,6 +32,16 @@ public class EBook extends Book {
         return true;
     }
 
+    @Override
+    public boolean decreaseQuantity(int quantity) {
+        return true;
+    }
+
+    @Override
+    public String getBookType() {
+        return "Electronic Book";
+    }
+
     public MailInterface getMail() {
         return mail;
     }

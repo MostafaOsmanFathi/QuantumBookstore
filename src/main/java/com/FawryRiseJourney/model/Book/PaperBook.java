@@ -42,6 +42,20 @@ public class PaperBook extends Book {
         return false;
     }
 
+    @Override
+    public boolean decreaseQuantity(int quantity) {
+        if (isAvailable(quantity)) {
+            stockQuantity -= quantity;
+            return true;
+        }
+        throw new IllegalArgumentException("Can't decrease that quantity amount");
+    }
+
+    @Override
+    public String getBookType() {
+        return "Paper Book";
+    }
+
     public int getStockQuantity() {
         return stockQuantity;
     }
