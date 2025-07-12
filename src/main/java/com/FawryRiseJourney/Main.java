@@ -25,6 +25,7 @@ public class Main {
     public static void main(String[] args) {
         initializeProducts();
 
+
         while (true) {
             showMainMenu();
             int choice = scanner.nextInt();
@@ -91,6 +92,9 @@ public class Main {
                 case 5:
                     withdrawMoney(customer);
                     break;
+                case 6:
+                    showBalance(customer);
+                    break;
                 case 0:
                     running = false;
                     break;
@@ -108,8 +112,13 @@ public class Main {
         System.out.println("3. Show My Orders");
         System.out.println("4. Deposit Money");
         System.out.println("5. Withdraw Money");
+        System.out.println("6. Show Account Balance");
         System.out.println("0. Logout");
         System.out.print("Choose: ");
+    }
+
+    private static void showBalance(Customer customer) {
+        System.out.println("\nCustomer Balance is: " + pseudoPaymentService.getCustomerBalance(customer.getEmail()));
     }
 
     private static void handleNewCustomerRegistration() {
@@ -187,6 +196,7 @@ public class Main {
             System.out.println("Book ISBN not found. Please try again.");
             return;
         }
+        System.out.print("Enter Quantity: 2");
         int quanntity = scanner.nextInt();
 
         if (bookSellingService.buyBook(book, quanntity, customer)) {
