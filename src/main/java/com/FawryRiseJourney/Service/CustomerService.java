@@ -26,6 +26,10 @@ public class CustomerService {
         return addCustomer(customer, PseudoPaymentService.getPseudoPaymentService());
     }
 
+    public void getCustomerOrders(Customer customer) {
+        System.out.println(customer.getAllOrders());
+    }
+
     public boolean addCustomer(Customer customer, PseudoPaymentService pseudoPaymentService) {
         if (customerRepository == null) {
             return false;

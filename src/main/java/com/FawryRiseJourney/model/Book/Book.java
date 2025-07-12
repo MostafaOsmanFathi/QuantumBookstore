@@ -40,7 +40,7 @@ public abstract class Book {
 
     @Override
     public String toString() {
-        return "{ISBN='" + ISBN + "', BookName='" + BookName + "', Author='" + Author + "', OutDate=" + OutDate + ", Price=" + price + "}";
+        return getBookType() + " {ISBN='" + ISBN + "', BookName='" + BookName + "', Author='" + Author + "', OutDate=" + OutDate + ", Price=" + price + "}";
     }
 
     public double getPrice() {

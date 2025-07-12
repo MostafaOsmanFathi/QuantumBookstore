@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    String name;
-    String address;
-    String phone;
-    String email;
+    private String name;
+    private String address;
+    private String phone;
+    private String email;
 
-    List<Order> orders;
+    private final List<Order> orders;
 
     PaymentInterface payment;
 
@@ -37,6 +37,17 @@ public class Customer {
 
     public boolean addOrder(Order order) {
         return orders.add(order);
+    }
+
+    public String getAllOrders() {
+        if (orders.isEmpty()) {
+            return "Customer has no orders";
+        }
+        StringBuilder ordersMessage = new StringBuilder();
+        for (Order order : orders) {
+            ordersMessage.append(order.toString());
+        }
+        return ordersMessage.toString();
     }
 
     public String getName() {

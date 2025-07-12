@@ -34,4 +34,13 @@ public class Order {
     public int getQuantity() {
         return quantity;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "book=" + book +
+                ", quantity=" + quantity +
+                ", status=" + status +
+                '}';
+    }
 }

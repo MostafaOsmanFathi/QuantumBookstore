@@ -55,7 +55,7 @@ public class InventoryService {
 
     public void displayAllBooks() {
         for (Book book : booksInventory.values()) {
-            System.out.println(book.getBookType() + " " + book);
+            System.out.println(book);
         }
     }
 
