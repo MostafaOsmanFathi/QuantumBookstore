@@ -42,10 +42,14 @@ public class InventoryService {
     }
 
     public boolean removeBook(Book book) {
-        if (!booksInventory.containsKey(book.getISBN())) {
+        return removeBook(book.getISBN());
+    }
+
+    public boolean removeBook(String ISBN) {
+        if (!booksInventory.containsKey(ISBN)) {
             return false;
         }
-        booksInventory.remove(book.getISBN());
+        booksInventory.remove(ISBN);
         return true;
     }
 
